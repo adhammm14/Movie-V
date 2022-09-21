@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getMovieData(callback: (List<Movie>) -> Unit) {
         val apiService = APIRetrofit.getInstance().create(APIServices::class.java)
-        apiService.getNowPlayingMovies().enqueue(object : Callback<MovieResponse> {
+        apiService.getPopularMovies().enqueue(object : Callback<MovieResponse> {
             override fun onResponse(call: Call<MovieResponse>, response: Response<MovieResponse>) {
                 return callback(response.body()!!.movies)
 
